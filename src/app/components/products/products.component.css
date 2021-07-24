@@ -1,0 +1,18 @@
+img.productImage{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15px;
+}
+.containerWrapper{
+    min-height: 700px;
+}
+button{
+    margin: 10px;
+}
+img.recommendedProducts{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15px;
+}

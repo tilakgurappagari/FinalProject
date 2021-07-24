@@ -1,0 +1,88 @@
+<app-home-nav></app-home-nav>
+
+<div class="container-fluid containerWrapper" >
+    <div class="container">
+        <form [formGroup]="userForm" name="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputFirstName">First Name</label>
+                  <input formControlName="firstName" name="firstName" type="text" 
+                  class="form-control" id="firstName" placeholder="First Name"  required  
+                 [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                         <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                     </div>  
+                </div> <!-- .....end of form group.... -->
+                <div class="form-group col-md-6">
+                  <label for="inputLastName">Last Name</label>
+                  <input formControlName="lastName" name="lastName" type="text" 
+                  class="form-control" id="lastName" placeholder="Last Name"  required  
+                 [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>               
+                </div><!-- .....end of form group.... -->
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                 <label for="inputEmail4">Email</label>
+                 <input formControlName="email" name="email" type="email" class="form-control" data-testid="register-email"
+                 id="inputEmail4" placeholder="Email"   required email  
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                         <div *ngIf="f.email.errors.required">Email is required</div>
+                         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div><!-- .....end of form group.... -->
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input formControlName="address" name="address" type="text" 
+              class="form-control" id="address" placeholder="Address"  required  
+             [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">Address is required</div>
+                </div> 
+            </div><!-- .....end of form group.... -->
+           
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input formControlName="city" name="city" type="text" 
+                class="form-control" id="city" placeholder="City"  required  
+               [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                  <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                      <div *ngIf="f.city.errors.required">City is required</div>
+                  </div> 
+            </div><!-- .....end of form group.... -->
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input formControlName="state" name="state" type="text" 
+                class="form-control" id="state" placeholder="State"  required  
+               [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
+                  <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                      <div *ngIf="f.state.errors.required">State is required</div>
+                  </div> 
+            </div><!-- .....end of form group.... -->
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input formControlName="zip" name="zip" type="text" 
+                class="form-control" id="zip" placeholder="Zip"  required  
+               [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" />
+                  <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                      <div *ngIf="f.zip.errors.required">Zip is required</div>
+                      <div *ngIf="f.zip.errors.pattern">Enter a valid 5 digit Zip Code</div>
+
+                  </div> 
+            </div><!-- .....end of form group.... -->
+            </div>
+            <div >
+                <button data-testid="checkout-button" type="submit" class="btn btn-primary btn-lg btn-block buttonWrapper">Place Order</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+
+            </div>
+          </form>
+    </div>
+</div>
+
+<app-footer></app-footer>
