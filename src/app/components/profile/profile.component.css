@@ -1,5 +1,5 @@
 .containerWrapper{
-    height: 700px;
+    min-height: 700px;
 }
 body{
     background: #f7f7ff;
