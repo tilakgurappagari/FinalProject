@@ -2,6 +2,7 @@
 
 <div class="container-fluid containerWrapper">
     <div class="container" style="padding: 100px;">
+        <h3>Add New Product</h3>
         <form [formGroup]="productsForm" name="productsForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -23,8 +24,7 @@
                         <div *ngIf="f.department.errors.required">Department is required</div>
                     </div>               
                 </div><!-- .....end of form group.... -->
-              </div>
-            <div class="form-row">
+             
                 <div class="form-group col-md-12">
                  <label for="inputPrice">Price</label>
                  <input formControlName="price" name="price" type="number" class="form-control" 
@@ -52,7 +52,28 @@
                           <div *ngIf="f.productImage.errors.required">Product Image is required</div>
                       </div>               
                   </div><!-- .....end of form group.... -->
-                
+                  <div class="form-group col-md-12">
+                    <label for="inputProductName">Product Description</label>
+                    <textarea formControlName="productDescription" name="productDescription"  
+                    class="form-control" id="productDescription" placeholder="Product Description"  required  
+                   [ngClass]="{ 'is-invalid': submitted && f.productDescription.errors }" ></textarea>
+                       <div *ngIf="submitted && f.productDescription.errors" class="invalid-feedback">
+                           <div *ngIf="f.productDescription.errors.required">Product Description is required</div>
+                           <div *ngIf="f.productDescription.errors.minLength">Product Description should be atleast 20 characters</div>
+                       </div>  
+                  </div> <!-- .....end of form group.... -->
+                  <div class="form-group col-md-12">
+                    <label for="inputTopProduct">Top Selling Product</label>
+                    <select formControlName="topSellingProduct" name="topSellingProduct"  id="topSellingProduct" class="form-control" required
+                    [ngClass]="{ 'is-invalid': submitted && f.topSellingProduct.errors }" >
+                      <option disabled selected value="">Select</option>
+                      <option value="1">yes</option>
+                      <option value="2">no</option>
+                    </select>
+                    <div *ngIf="submitted && f.topSellingProduct.errors" class="invalid-feedback">
+                      <div *ngIf="f.topSellingProduct.errors.required">This field is required</div>
+                  </div>
+                  </div>
             
            
             </div>

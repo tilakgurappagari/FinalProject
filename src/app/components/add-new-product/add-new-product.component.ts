@@ -24,12 +24,8 @@ export class AddNewProductComponent implements OnInit {
       price: ['', [Validators.required]],
       discountedPrice:['',[Validators.required]],
       productImage:['',[Validators.required]],
-      state:['',[Validators.required]],
-      zip:['',[Validators.required,Validators.pattern('[1-9]{1}[0-9]{4}')]]
-
-
-
-      
+      productDescription:  ['', [Validators.required, Validators.minLength(20)]],
+      topSellingProduct: ['',[Validators.required]]
     });
   }
   get f() { return this.productsForm.controls; }
