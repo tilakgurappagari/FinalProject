@@ -34,7 +34,6 @@ export class CheckoutComponent implements OnInit {
   get f() { return this.userForm.controls; }
 
   public onSubmit():void{
-    console.log(this.userForm.valid);
     this.submitted = true;
     if (this.userForm.invalid) {
       return;

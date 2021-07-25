@@ -16,6 +16,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CategoriesComponent,
     ProductsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrdersComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,

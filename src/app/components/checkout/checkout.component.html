@@ -26,7 +26,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                  <label for="inputEmail4">Email</label>
-                 <input formControlName="email" name="email" type="email" class="form-control" data-testid="register-email"
+                 <input formControlName="email" name="email" type="email" class="form-control" 
                  id="inputEmail4" placeholder="Email"   required email  
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">

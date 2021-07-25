@@ -1,0 +1,68 @@
+<app-home-nav></app-home-nav>
+
+<div class="container-fluid containerWrapper">
+    <div class="container" style="padding: 100px;">
+        <form [formGroup]="productsForm" name="productsForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputProductName">Product Name</label>
+                  <input formControlName="productName" name="productName" type="text" 
+                  class="form-control" id="productName" placeholder="Product Name"  required  maxlength="64" 
+                 [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+                     <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+                         <div *ngIf="f.productName.errors.required">Product Name is required</div>
+                         <div *ngIf="f.productName.errors.maxLength">Product Name should be less than 64 characters</div>
+                     </div>  
+                </div> <!-- .....end of form group.... -->
+                <div class="form-group col-md-12">
+                  <label for="inputDepartment">Department</label>
+                  <input formControlName="department" name="department" type="text" 
+                  class="form-control" id="department" placeholder="Department"  required  
+                 [ngClass]="{ 'is-invalid': submitted && f.department.errors }" />
+                    <div *ngIf="submitted && f.department.errors" class="invalid-feedback">
+                        <div *ngIf="f.department.errors.required">Department is required</div>
+                    </div>               
+                </div><!-- .....end of form group.... -->
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                 <label for="inputPrice">Price</label>
+                 <input formControlName="price" name="price" type="number" class="form-control" 
+                 id="price" placeholder="Price"   required   
+                 [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                         <div *ngIf="f.price.errors.required">Price is required</div>
+                    </div>
+                </div><!-- .....end of form group.... -->
+                <div class="form-group col-md-12">
+                    <label for="inputDiscountedPrice">Price</label>
+                    <input formControlName="discountedPrice" name="discountedPrice" type="number" class="form-control" 
+                    id="discountedPrice" placeholder="Discounted Price"   required   
+                    [ngClass]="{ 'is-invalid': submitted && f.discountedPrice.errors }" />
+                       <div *ngIf="submitted && f.discountedPrice.errors" class="invalid-feedback">
+                            <div *ngIf="f.discountedPrice.errors.required">Discounted Price is required</div>
+                       </div>
+                   </div><!-- .....end of form group.... -->
+                   <div class="form-group col-md-12">
+                    <label for="inputProductImage">Product Image</label>
+                    <input formControlName="productImage" name="productImage" type="text" 
+                    class="form-control" id="productImage" placeholder="Product Image"  required  
+                   [ngClass]="{ 'is-invalid': submitted && f.productImage.errors }" />
+                      <div *ngIf="submitted && f.productImage.errors" class="invalid-feedback">
+                          <div *ngIf="f.productImage.errors.required">Product Image is required</div>
+                      </div>               
+                  </div><!-- .....end of form group.... -->
+                
+            
+           
+            </div>
+            <div >
+                <button data-testid="add-new-button" type="submit" class="btn btn-primary btn-lg btn-block buttonWrapper">Place Order</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+
+            </div>
+          </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

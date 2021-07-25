@@ -1,0 +1,20 @@
+.containerWrapper{
+    min-height: 700px;
+}
+.buttonWrapper{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color:#E6D138;
+     color:black;
+     width: 300px;
+}
+.btn-secondary
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+     color:black;
+     width: 300px;
+}
