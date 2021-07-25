@@ -67,8 +67,8 @@
                     <select formControlName="topSellingProduct" name="topSellingProduct"  id="topSellingProduct" class="form-control" required
                     [ngClass]="{ 'is-invalid': submitted && f.topSellingProduct.errors }" >
                       <option disabled selected value="">Select</option>
-                      <option value="1">yes</option>
-                      <option value="2">no</option>
+                      <option value="true">yes</option>
+                      <option value="false">no</option>
                     </select>
                     <div *ngIf="submitted && f.topSellingProduct.errors" class="invalid-feedback">
                       <div *ngIf="f.topSellingProduct.errors.required">This field is required</div>

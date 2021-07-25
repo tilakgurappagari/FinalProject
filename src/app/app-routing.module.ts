@@ -7,6 +7,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'checkout', component:CheckoutComponent},
   {path:'orders', component:OrdersComponent},
   {path:'admin/add-new-product', component:AddNewProductComponent},
+  {path:'admin/products', component:ManageProductsComponent},
+  {path:'admin/orders', component:ManageOrdersComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: '**', redirectTo: '' }
 ];

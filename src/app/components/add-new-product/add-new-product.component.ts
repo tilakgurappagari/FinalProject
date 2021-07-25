@@ -31,6 +31,7 @@ export class AddNewProductComponent implements OnInit {
   get f() { return this.productsForm.controls; }
 
   public onSubmit():void{
+    console.log(this.productsForm.value);
     this.submitted = true;
     if (this.productsForm.invalid) {
       return;
