@@ -20,6 +20,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ManageOrdersComponent } from './components/manage-orders/manage-orders.
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterServiceService } from 'src/app/services/register-service.service';
 import { ReactiveMustMatch } from '../../helpers/must-match.validator';
 
 
@@ -12,8 +13,9 @@ import { ReactiveMustMatch } from '../../helpers/must-match.validator';
 export class RegistrationComponent implements OnInit {
   public userForm: FormGroup;
   public submitted: boolean = false;
+  public responseData : any;
 
-  constructor(private formBuilder: FormBuilder, public router: Router) { }
+  constructor(private formBuilder: FormBuilder, public router: Router, public registerService: RegisterServiceService) { }
 
   ngOnInit(): void {
     this.initializeUserForm();
@@ -40,9 +42,19 @@ export class RegistrationComponent implements OnInit {
     if (this.userForm.invalid) {
       return;
   }
- 
+   
+    this.registerService.setData(this.userForm.value).subscribe((data:any)=>{
+        this.responseData = data;
+        this.router.navigate(['/login'],
+        {
+          queryParams:{
+          message : data.message
+          }
+        }
+        );
+
+    });
     alert('User Registered successfully. Please login to continue');
-    this.router.navigate(['/login']);
   }
 
 onReset() {
