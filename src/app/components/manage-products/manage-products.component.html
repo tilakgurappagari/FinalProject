@@ -6,7 +6,23 @@
         <div class="col-sm-3"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button>
         </div>
     </div>
-    <div class="row" data-testid="manage-product-row"></div>
+    <div *ngFor="let product of productsData" class="row" data-testid="manage-product-row">
+        <div class="card" style="width: 800px ; margin:10px; height: 80px;">
+            <div class="card-body">
+                <div class="row" >
+                    <div class="col-md-8">
+                        <h5>{{product.productName}}</h5>
+                        <p>{{product.price}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><span><a routerLink="/admin/manage-products" style="text-decoration: none; color: black;">EDIT</a></span>  | 
+                            <span><a routerLink="/admin/manage-products" style="text-decoration: none; color: red;">DELETE</a></span></p>
+                    </div>
+                </div>
+               
+            </div>
+          </div>
+    </div>
 </div>
 
 <app-footer></app-footer>

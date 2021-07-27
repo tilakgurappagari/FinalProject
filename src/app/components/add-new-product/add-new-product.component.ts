@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AddNewProductService } from 'src/app/services/add-new-product.service';
 @Component({
   selector: 'app-add-new-product',
   templateUrl: './add-new-product.component.html',
@@ -10,7 +11,8 @@ export class AddNewProductComponent implements OnInit {
 
   public productsForm: FormGroup;
   public submitted: boolean = false;
-  constructor(private formBuilder: FormBuilder, public router:Router) { 
+  public responseData: any;
+  constructor(private formBuilder: FormBuilder, public router:Router, public addNewProductService: AddNewProductService) { 
 
   }
 
@@ -19,8 +21,9 @@ export class AddNewProductComponent implements OnInit {
   }
   public initializeUserForm(){
     this.productsForm = this.formBuilder.group({
+      productId:  ['', Validators.required],
       productName:  ['', [Validators.required, Validators.maxLength(64)]],
-      department:  ['', Validators.required],
+      category:  ['', Validators.required],
       price: ['', [Validators.required]],
       discountedPrice:['',[Validators.required]],
       productImage:['',[Validators.required]],
@@ -36,6 +39,20 @@ export class AddNewProductComponent implements OnInit {
     if (this.productsForm.invalid) {
       return;
   }
+  this.addNewProductService.addProductData(this.productsForm.value).subscribe((data:any)=>{
+    this.responseData = data;
+    this.router.navigate(['/admin/products'],
+    {
+      queryParams:{
+      message : data.message
+      }
+    }
+    );
+
+});
+// alert('User Registered successfully. Please login to continue');
+
+
 }
 onReset() {
   this.submitted = false;
