@@ -68,69 +68,23 @@
       </div>
       <!-- .................................. -->
       <div class="sectionLight" style=" margin-top: 3px;" data-testid="homepage-product">
+        <h3>TOP SELLING PRODUCTS</h3>
+        <hr>
         <div class="row">
           <div class="col-sm-12 " >
             <div class="row">
-              <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/kickflip.jpg">
+              <div  *ngFor="let product of productsData" class="col-sm-12 col-lg-3" >
+                <img class="img-fluid imgCenter" src="{{product.productImage}}">
+                <p>{{product.price}}</p>
                 <div class="row">
                   <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".kf-modal-lg">Kickflip</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="navigate(product)">View Product</button>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/360flip.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".360-modal-md">360 Flip</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div> <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div> <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div> <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div> <div class="col-sm-12 col-lg-3">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
-              </div>
+           
+              
+             
             </div>
           </div>
         </div>

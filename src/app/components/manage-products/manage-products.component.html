@@ -3,7 +3,7 @@
 <div class="container containerWrapper">
     <div class="row">
         <div class="col-sm-3"> <h3>Manage Products</h3></div>
-        <div class="col-sm-3"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button>
+        <div class="col-sm-3"><button type="button" routerLink="/admin/add-new-product" class="btn btn-primary btn-lg btn-block">Add Product</button>
         </div>
     </div>
     <div *ngFor="let product of productsData" class="row" data-testid="manage-product-row">
