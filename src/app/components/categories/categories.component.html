@@ -1,28 +1,37 @@
 <app-home-nav></app-home-nav>
 
 <div class="container-fluid containerWrapper">
-    <div class="row">
-        <div class="col-4" style="padding-left: 200px;">SORTING LOGIC</div>
-        <div class="col8">
+    <div class="container" style=" margin-top: 3px;" data-testid="homepage-product">
+        <h3>{{categoryName|titlecase}}s</h3>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12 " >
             <div class="row">
-                <!-- ........................... -->
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <!-- ............................. -->
 
-                
-                
+              <div  *ngFor="let product of productsData" class="col-sm-12 col-lg-4"  >
+                <h4 style="text-align: center;">{{product.productName|titlecase}}</h4>
+                <img class="img-fluid imgCenter" src="{{product.productImage}}" style="margin: auto; display: block;">
+                <p style="text-align: center;"><span style="text-align: center; margin-right:2px ;">{{product.price - product.discountedPrice|currency}}</span>
+                  <span style="text-align: center; text-decoration: line-through; color: red;">{{product.price|currency}}</span>
+                </p>
+              
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="navigateToProduct(product)">View Product</button>
+                  </div>
+                </div>
+              </div>
+           
+              
+             
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      <!-- .................................. -->
+
+
 </div>
 
 <app-footer></app-footer>

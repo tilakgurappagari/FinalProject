@@ -21,6 +21,7 @@ import { AddNewProductComponent } from './components/add-new-product/add-new-pro
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     OrdersComponent,
     AddNewProductComponent,
     ManageProductsComponent,
-    ManageOrdersComponent
+    ManageOrdersComponent,
+    AdminNavComponent
   ],
   imports: [
     BrowserModule,

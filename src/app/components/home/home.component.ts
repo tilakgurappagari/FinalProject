@@ -13,6 +13,20 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit {
   public productsData : any = [];
   currentUser: any;
+  newPrice: any;
+  public categories: any= [
+    {
+    categoryName: 'mobile',
+    categoryImage: 'http://via.placeholder.com/480x240'
+  },
+  {
+    categoryName: 'laptop',
+    categoryImage: 'http://via.placeholder.com/480x240'
+  }, {
+    categoryName: 'other',
+    categoryImage: 'http://via.placeholder.com/480x240'
+  },
+]
   currentUserSubscription: Subscription;
   constructor(public homeService: HomeService, public router: Router, public authenticationService: AuthenticationService) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -34,7 +48,7 @@ export class HomeComponent implements OnInit {
     });
 
 }
-public navigate(product: any){
+public navigateToProduct(product: any){
  // console.log(product);
   this.router.navigate(['/products'], 
     {
@@ -52,6 +66,13 @@ public navigate(product: any){
     }
   );
   //console.log(product);
+}
+public navigateToCategory(categoryName:any){
+  this.router.navigate(['/categories'],{
+    queryParams:{
+      categoryName: categoryName
+    }
+  })
 }
 
 }

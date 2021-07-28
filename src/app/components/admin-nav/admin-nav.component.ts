@@ -4,11 +4,12 @@ import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
-  selector: 'app-home-nav',
-  templateUrl: './home-nav.component.html',
-  styleUrls: ['./home-nav.component.css']
+  selector: 'app-admin-nav',
+  templateUrl: './admin-nav.component.html',
+  styleUrls: ['./admin-nav.component.css']
 })
-export class HomeNavComponent implements OnInit {
+export class AdminNavComponent implements OnInit {
+
   userName: any;
   currentUser: any;
   currentUserSubscription: Subscription;
@@ -28,5 +29,6 @@ export class HomeNavComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+
 
 }

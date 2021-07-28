@@ -34,37 +34,22 @@
         <div class="col"></div>
       </div>
       <!-- .................... -->
-      <div class="sectionLight" style=" margin-top: 3px; padding-left: 100px;" data-testid="homepage-category">
+      <div class="sectionLight" style=" margin-top: 3px;" data-testid="homepage-category">
+        <h3>CATEGORIES</h3>
+        <hr>
         <div class="row">
-          <div class="col-sm-12 " >
+          <div *ngFor="let category of categories" class="col-sm-12 col-lg-4">
+            <img class="img-fluid imgCenter"  src="{{category.categoryImage}}" style="margin: auto; display: block; margin-bottom: 3px;">
             <div class="row">
-              <div class="col-sm-12 col-lg-4">
-                <img class="img-fluid imgCenter" src="assets/kickflip.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".kf-modal-lg">Kickflip</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-lg-4">
-                <img class="img-fluid imgCenter" src="assets/360flip.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".360-modal-md">360 Flip</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-lg-4">
-                <img class="img-fluid imgCenter" src="assets/bscrook.jpg">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btnCenter" data-toggle="modal" data-target=".bscrook-modal-sm">BS Crook</button>
-                  </div>
-                </div>
+              <div class="col-sm-12">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="navigateToCategory(category.categoryName)" >View {{category.categoryName|titlecase}}s</button>
               </div>
             </div>
           </div>
+
         </div>
+
+       
       </div>
       <!-- .................................. -->
       <div class="sectionLight" style=" margin-top: 3px;" data-testid="homepage-product">
@@ -73,12 +58,18 @@
         <div class="row">
           <div class="col-sm-12 " >
             <div class="row">
+
               <div  *ngFor="let product of productsData" class="col-sm-12 col-lg-3"  >
+                <h4 style="text-align: center;">{{product.productName|titlecase}}</h4>
                 <img class="img-fluid imgCenter" src="{{product.productImage}}" style="margin: auto; display: block;">
-                <p>{{product.price}}</p>
+                <p style="text-align: center;"><span style="text-align: center; margin-right:2px ;">{{product.price - product.discountedPrice|currency}}</span>
+                  <span style="text-align: center; text-decoration: line-through; color: red;">{{product.price|currency}}</span>
+                </p>
+              
+
                 <div class="row">
                   <div class="col-sm-12">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="navigate(product)">View Product</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="navigateToProduct(product)">View Product</button>
                   </div>
                 </div>
               </div>

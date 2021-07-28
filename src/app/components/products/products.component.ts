@@ -34,4 +34,8 @@ public discountedPrice: any;
       this.newPrice = this.price-this.discountedPrice;
   }
 
+  public addToCart(){
+    
+  }
+
 }
