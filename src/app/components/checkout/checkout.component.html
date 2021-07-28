@@ -6,8 +6,8 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputFirstName">First Name</label>
-                  <input formControlName="firstName" name="firstName" type="text" 
-                  class="form-control" id="firstName" placeholder="First Name"  required  
+                  <input formControlName="firstName" name="firstName" type="text" [ngModel]="firstName |titlecase"
+                  class="form-control" id="firstName"   required  
                  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
@@ -16,7 +16,7 @@
                 <div class="form-group col-md-6">
                   <label for="inputLastName">Last Name</label>
                   <input formControlName="lastName" name="lastName" type="text" 
-                  class="form-control" id="lastName" placeholder="Last Name"  required  
+                  class="form-control" id="lastName" [ngModel]="lastName |titlecase" required  
                  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                     <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                         <div *ngIf="f.lastName.errors.required">Last Name is required</div>
@@ -27,7 +27,7 @@
                 <div class="form-group col-md-12">
                  <label for="inputEmail4">Email</label>
                  <input formControlName="email" name="email" type="email" class="form-control" 
-                 id="inputEmail4" placeholder="Email"   required email  
+                 id="inputEmail4"[ngModel]="email"  required email  
                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                          <div *ngIf="f.email.errors.required">Email is required</div>

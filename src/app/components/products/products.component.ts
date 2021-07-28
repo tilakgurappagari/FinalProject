@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +17,7 @@ public discountedPrice: any;
   public isTopProduct: any;
   public category: any;
   public newPrice: any;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
       this.activatedRoute.queryParamMap.subscribe((params)=>{
@@ -35,7 +35,19 @@ public discountedPrice: any;
   }
 
   public addToCart(){
-    
+
+  }
+  public buyNow(){
+    this.router.navigate(['/checkout'], {
+      queryParams:{
+        productId:  this.productId,
+        productName: this.productName,
+        price: this.price,
+        discountedPrice: this.discountedPrice,
+
+      }
+    })
+
   }
 
 }
