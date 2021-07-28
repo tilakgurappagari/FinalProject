@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { first } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 
 @Component({
@@ -19,6 +21,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
   ) {
     
     
@@ -46,6 +51,23 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    console.log(data.user.role);
+                    if(data.user.role==="admin"){
+                      this.router.navigate(['/admin/add-new-product']);
+                    }
+                    if(data.user.role==="user"){
+                      this.router.navigate(['/home']);
+                    }
+
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
    
   }
 }

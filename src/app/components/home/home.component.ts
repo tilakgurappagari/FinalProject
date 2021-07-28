@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HomeService } from 'src/app/services/home.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +12,15 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class HomeComponent implements OnInit {
   public productsData : any = [];
-  constructor(public homeService: HomeService, public router: Router) { }
+  currentUser: any;
+  currentUserSubscription: Subscription;
+  constructor(public homeService: HomeService, public router: Router, public authenticationService: AuthenticationService) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+      this.currentUser = user;
+      console.log(this.currentUser);
+    
+         });
+   }
 
   ngOnInit(): void {
     this.homeService.getProductsData().subscribe((data:any)=>{
@@ -18,13 +29,13 @@ export class HomeComponent implements OnInit {
           this.productsData.push(data[index]);
         }
       }
-      console.log(this.productsData);
+//console.log(this.productsData);
 
     });
 
 }
 public navigate(product: any){
-  console.log(product);
+ // console.log(product);
   this.router.navigate(['/products'], 
     {
       queryParams:{
