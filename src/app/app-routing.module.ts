@@ -13,21 +13,22 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'home', component: HomeComponent },
-  {path: 'categories',component:CategoriesComponent},
-  {path:'products', component:ProductsComponent},
-  {path:'cart', component:CartComponent},
-  {path:'checkout', component:CheckoutComponent},
-  {path:'orders', component:OrdersComponent},
-  {path:'admin/add-new-product', component:AddNewProductComponent},
-  {path:'admin/products', component:ManageProductsComponent},
-  {path:'admin/orders', component:ManageOrdersComponent},
+  { path: 'profile', component: ProfileComponent ,canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent ,canActivate: [AuthGuard] },
+  {path: 'categories',component:CategoriesComponent ,canActivate: [AuthGuard]},
+  {path:'products', component:ProductsComponent ,canActivate: [AuthGuard]},
+  {path:'cart', component:CartComponent ,canActivate: [AuthGuard]},
+  {path:'checkout', component:CheckoutComponent ,canActivate: [AuthGuard]},
+  {path:'orders', component:OrdersComponent ,canActivate: [AuthGuard]},
+  {path:'admin/add-new-product', component:AddNewProductComponent ,canActivate: [AuthGuard]},
+  {path:'admin/products', component:ManageProductsComponent ,canActivate: [AuthGuard]},
+  {path:'admin/orders', component:ManageOrdersComponent ,canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: '**', redirectTo: '' }
 ];
