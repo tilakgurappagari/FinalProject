@@ -1,5 +1,23 @@
 <app-home-nav></app-home-nav>
 
+<div class="container" style="padding-left: 100px;">
+    <div class="card" style="width: 800px ; margin:10px; height: 80px;">
+        <div class="card-body">
+            <div class="row" >
+                <div class="col-md-8">
+                    <h5>Name:{{productName}}</h5>
+                    <p>Price:{{price}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p><span><a routerLink="/home" style="text-decoration: none; color: red;">Remove</a></span></p>
+                </div>
+            </div>
+           
+        </div>
+      </div>
+</div>
+<hr>
+
 <div class="container-fluid containerWrapper" >
     <div class="container">
         <form [formGroup]="userForm" name="userForm" (ngSubmit)="onSubmit()">

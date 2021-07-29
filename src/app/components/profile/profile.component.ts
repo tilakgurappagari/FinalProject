@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   role: any;
   isAdmin: boolean = false;
   isUser: boolean = false;
-  constructor( public router: Router, public authenticationService: AuthenticationService) {
+  constructor( public authenticationService: AuthenticationService) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
       //console.log(this.currentUser.user.firstName);

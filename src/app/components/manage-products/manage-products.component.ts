@@ -8,14 +8,26 @@ import { ManageProductsService } from 'src/app/services/manage-products.service'
 })
 export class ManageProductsComponent implements OnInit {
   public productsData : any;
+  public responseData: any;
   constructor(public manageProductsService: ManageProductsService) { }
 
   ngOnInit(): void {
     this.manageProductsService.getProductsData().subscribe((data:any)=>{
       this.productsData = data;
-      // console.log(this.productsData);
 
     });
 
 }
+
+  public deleteProduct(productData: any){
+      console.log(productData._id);
+      this.manageProductsService.deleteProduct(productData._id).subscribe((data:any)=>{
+        this.responseData = data;
+        this.ngOnInit();
+      
+
+    });
+
+  }
+
 }

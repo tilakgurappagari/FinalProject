@@ -11,6 +11,5 @@ export class AddNewProductService {
       public http: HttpClient 
     ) { }
   public addProductData(productsFormData : any){
-    console.log(productsFormData);
     return   this.http.post('http://localhost:8081/api/v1/products/addProduct', productsFormData);
   }}

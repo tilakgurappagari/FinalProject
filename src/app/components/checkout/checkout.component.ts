@@ -31,7 +31,6 @@ currentUserSubscription: Subscription;
         this.firstName=this.currentUser.user.firstName;
         this.lastName=this.currentUser.user.lastName;
         this.email=this.currentUser.user.email;
-        console.log(this.email);
   });
 }
 
@@ -44,7 +43,6 @@ currentUserSubscription: Subscription;
 
     })
     this.newPrice = this.price-this.discountedPrice;
-    console.log(this.newPrice);
 
 
 
@@ -76,10 +74,8 @@ currentUserSubscription: Subscription;
   this.userForm.value.productName = this.productName;
   this.userForm.value.price = this.newPrice;
 
-  console.log(this.userForm.value);
   this.checkoutService.addOrder(this.userForm.value).subscribe((data:any)=>{
     this.responseData = data;
-    console.log(this.responseData);
     this.router.navigate(['/home'],
     {
       queryParams:{
@@ -89,7 +85,7 @@ currentUserSubscription: Subscription;
     );
 
 });
-alert('order Placed successfully. Please login to continue');
+alert('order Placed successfully.');
 }
 
 

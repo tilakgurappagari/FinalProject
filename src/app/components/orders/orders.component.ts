@@ -16,17 +16,39 @@ export class OrdersComponent implements OnInit {
   lastName: any;
   phone: any;
   email: any;
-
+  //...............................
+  public enable: any = null;
+  public isSeeDetails : boolean= false;
+  public buttonValue: String="See Details";
+  //..................................
+  public orderIdDetail: any;
+  public emailDetail: any;
+  public orderedOnDetail: any;
+  public productNameDetail: any;
 
   constructor(public ordersService: OrdersService, public authenticationService: AuthenticationService) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
-      //console.log(this.currentUser.user.firstName);
-      this.email=this.currentUser.user.email;  
-      console.log(this.currentUser.user.email);
-  
+      this.email=this.currentUser.user.email;    
          });
 
+   }
+
+   public seeDetails(indexValue, orderData){
+     if(this.isSeeDetails==false){
+       this.enable=indexValue;
+       this.isSeeDetails=true;
+       this.buttonValue = "Hide Details";
+      this.emailDetail=orderData.email;
+      this.orderIdDetail = orderData._id;
+      this.productNameDetail = orderData.productName;
+      this.orderedOnDetail = orderData.orderedOn;
+     }
+     else{
+      this.enable = null;
+      this.isSeeDetails=false;
+      this.buttonValue="See Details";
+     }
    }
 
   ngOnInit(): void {
@@ -38,9 +60,6 @@ export class OrdersComponent implements OnInit {
             this.ordersData.push(data[index]);
           }
         }
-  
-        console.log(this.ordersData);
-
     });
 
 }
