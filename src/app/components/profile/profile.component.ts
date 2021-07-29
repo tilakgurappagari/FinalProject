@@ -15,6 +15,9 @@ export class ProfileComponent implements OnInit {
   lastName: any;
   phone: any;
   email: any;
+  role: any;
+  isAdmin: boolean = false;
+  isUser: boolean = false;
   constructor( public router: Router, public authenticationService: AuthenticationService) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
@@ -23,6 +26,11 @@ export class ProfileComponent implements OnInit {
       this.lastName=this.currentUser.user.lastName;
       this.email=this.currentUser.user.email;
       this.phone=this.currentUser.user.phone;
+      this.role = this.currentUser.user.role;
+      if(this.role.toLowerCase()==="admin")
+          this.isAdmin=true;
+      else
+        this.isUser=true;
 
     
          });

@@ -21,7 +21,6 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-        console.log(email,password);
         return this.http.post<any>(`http://localhost:8081/api/v1/auth/login`, { email, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
@@ -30,7 +29,6 @@ export class AuthenticationService {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);
                 }
-                //console.log(user);
                 return user;
             }));
     }

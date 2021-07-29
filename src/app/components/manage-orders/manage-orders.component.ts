@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManageOrdersService } from 'src/app/services/manage-orders.service';
 
 @Component({
   selector: 'app-manage-orders',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-orders.component.css']
 })
 export class ManageOrdersComponent implements OnInit {
-
-  constructor() { }
+  public ordersData: any;
+  constructor(public manageOrderService: ManageOrdersService) { }
 
   ngOnInit(): void {
-  }
+    this.manageOrderService.getOrdersData().subscribe((data:any)=>{
+        this.ordersData = data;
+        console.log(this.ordersData);
+
+    });
+
+}
 
 }

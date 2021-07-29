@@ -1,8 +1,23 @@
 <app-home-nav></app-home-nav>
 
-<div class="constainer-fluid containerWrapper">
+<div class="constainer containerWrapper">
     <h4 style="padding-left:100px;">Your Orders</h4>
-    <div class="row" data-testid="order-row"></div>
+        <div *ngFor="let order of ordersData" class="row" data-testid="order-row" style="padding-left: 100px;">
+            <div class="card" style="width: 800px ; margin:10px; height: 80px;">
+                <div class="card-body">
+                    <div class="row" >
+                        <div class="col-md-8">
+                            <h5>{{order._id}}</h5>
+                            <p>{{order.email}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><span><a routerLink="/orders" style="text-decoration: none; color: black;">See Details</a></span></p>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+    </div>
 
 </div>
 

@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    console.log(data.user.role);
                     if(data.user.role==="admin"){
                       this.router.navigate(['/admin/add-new-product']);
                     }

@@ -3,7 +3,22 @@
     <div class="row">
         <div class="col-sm-3"> <h3>Manage Orders</h3></div>
     </div>
-    <div class="row" data-testid="manage-order-row"></div>
+    <div *ngFor="let order of ordersData" class="row" data-testid="manage-order-row">
+            <div class="card" style="width: 800px ; margin:10px; height: 80px;">
+                <div class="card-body">
+                    <div class="row" >
+                        <div class="col-md-8">
+                            <h5>{{order._id}}</h5>
+                            <p>{{order.email}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><span><a routerLink="/admin/orders" style="text-decoration: none; color: black;">See Details</a></span></p>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+    </div>
 </div>
 
 <app-footer></app-footer>
