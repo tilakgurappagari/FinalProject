@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-home-nav></app-home-nav>
 <div class="container containerWrapper">
     <div class="main-body">
         <div class="row">
@@ -31,21 +31,21 @@
                                 <div class="row">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-3" style="text-align: right;"><p >First Name:</p></div>
-                                    <div class="col-sm-7"><h6 data-testid="profile-first-name">First name of looged in user</h6></div>
+                                    <div class="col-sm-7"><h6 data-testid="profile-first-name">{{firstName|titlecase}}</h6></div>
                                 </div> <div class="row">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-3" style="text-align: right;"><p>Last Name:</p></div>
-                                    <div class="col-sm-7"><h6 data-testid="profile-last-name">Last name of looged in user</h6></div>
+                                    <div class="col-sm-7"><h6 data-testid="profile-last-name">{{lastName|titlecase}}</h6></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-3" style="text-align: right;"><p>Email:</p></div>
-                                    <div class="col-sm-7"><h6 data-testid="profile-email-name">Email of looged in user</h6></div>
+                                    <div class="col-sm-7"><h6 data-testid="profile-email-name">{{email}}</h6></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-3" style="text-align: right;"><p>Phone:</p></div>
-                                    <div class="col-sm-7"><h6>999999999</h6></div>
+                                    <div class="col-sm-7"><h6>{{phone}}</h6></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-2"></div>
