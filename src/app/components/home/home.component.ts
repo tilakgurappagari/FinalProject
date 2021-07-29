@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   constructor(public homeService: HomeService, public router: Router, public authenticationService: AuthenticationService) {
     this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       this.currentUser = user;
-      console.log(this.currentUser);
     
          });
    }
@@ -39,11 +38,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getProductsData().subscribe((data:any)=>{
       for(let index=0; index<data.length; index++){
-        if(data[index].isTopProduct === true){
+        if(data[index].topSellingProduct === true){
           this.productsData.push(data[index]);
         }
       }
-//console.log(this.productsData);
 
     });
 

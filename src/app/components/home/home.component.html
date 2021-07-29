@@ -52,12 +52,12 @@
        
       </div>
       <!-- .................................. -->
-      <div class="sectionLight" style=" margin-top: 3px;" data-testid="homepage-product">
+      <div class="container-fluid" style=" margin-top: 3px;" data-testid="homepage-product">
         <h3>TOP SELLING PRODUCTS</h3>
         <hr>
         <div class="row">
-          <div class="col-sm-12 " >
-            <div class="row">
+          <!-- <div class="col-sm-12 " >
+            <div class="row"> -->
 
               <div  *ngFor="let product of productsData" class="col-sm-12 col-lg-3"  >
                 <h4 style="text-align: center;">{{product.productName|titlecase}}</h4>
@@ -77,8 +77,8 @@
               
              
             </div>
-          </div>
-        </div>
+          <!-- </div>
+        </div> -->
       </div>
       <!-- .................................. -->
 
